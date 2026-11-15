@@ -1,0 +1,1 @@
+{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"npm run build","env":{"DATABASE_PATH":"/tmp/astrocare.db","NODE_ENV":"production"},"framework":"vite","installCommand":"npm install --legacy-peer-deps","outputDirectory":"dist","rewrites":[{"destination":"/api/index","source":"/api/:path*"}]}
