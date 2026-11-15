@@ -1,0 +1,542 @@
+@import "tailwindcss";
+
+/*
+ * ASTROCARE AI theme tokens — UI UX Pro Max design system (generated 2026-11-16)
+ * See design-system/astrocare-ai/MASTER.md and ASTROCARE_OVERRIDES.md for the
+ * generated system and the four documented adaptations for this medical app.
+ * Two accents by role: cyan = telemetry / info, green (#22C55E) = action / nominal.
+ * Status colours are semantic and unchanged: low #34d399, moderate #fbbf24, high #fb7185.
+ */
+:root {
+  --bg-space: #050914;
+  --bg-space-elevated: #0a1224;
+  --surface-glass: rgba(27, 35, 54, 0.72);
+  --surface-panel: #1b2336;
+  --border-hairline: rgba(255, 255, 255, 0.2);
+  --border-subtle: rgba(148, 163, 184, 0.14);
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Generated design-system tokens (MASTER.md) */
+  --color-primary: #1e293b;
+  --color-on-primary: #ffffff;
+  --color-secondary: #334155;
+  --color-on-secondary: #ffffff;
+  --color-accent: #22c55e;
+  --color-on-accent: #0f172a;
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-card: #1b2336;
+  --color-card-foreground: #f8fafc;
+  --color-muted: #272f42;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #475569;
+  --color-destructive: #ef4444;
+  --color-on-destructive: #ffffff;
+  --color-ring: #38bdf8;
+
+  /* Generated spacing tokens */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Generated shadow depths */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.astro-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(6, 182, 212, 0.11) 0%, transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+    linear-gradient(180deg, #050914 0%, #070d1c 100%);
+}
+
+.font-mono-tabular {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Header & Navigation */
+.astro-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(5, 9, 20, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.astro-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.astro-brand {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.astro-nav {
+  display: none;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .astro-nav {
+    display: flex;
+  }
+}
+
+.astro-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 0;
+  padding: 0.4rem 0.15rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 180ms var(--ease-out);
+}
+
+.astro-nav-link:hover {
+  color: #e2e8f0;
+}
+
+.astro-nav-link.is-active {
+  color: #38bdf8;
+}
+
+.astro-nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-radius: 1px;
+}
+
+.astro-nav-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 0.32rem;
+  border-radius: 9999px;
+  background: rgba(244, 63, 94, 0.22);
+  border: 1px solid rgba(244, 63, 94, 0.5);
+  color: #fda4af;
+  font-family: "Fira Code", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.astro-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.astro-mobile-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.7);
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+@media (min-width: 960px) {
+  .astro-mobile-toggle {
+    display: none;
+  }
+}
+
+.astro-mobile-drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(7, 12, 26, 0.96);
+}
+
+@media (min-width: 960px) {
+  .astro-mobile-drawer {
+    display: none !important;
+  }
+}
+
+.astro-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 0.925rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.astro-mobile-link.is-active {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.3);
+  color: #38bdf8;
+}
+
+/* Buttons */
+/* Primary action: generated accent green, dark text (MASTER.md button spec).
+   Telemetry / info accents stay cyan so green always means action or nominal. */
+.astro-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 38px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+
+.astro-btn-primary:hover {
+  opacity: 0.93;
+  transform: translateY(-1px);
+}
+
+.astro-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 38px;
+  padding: 0.5rem 0.95rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-secondary);
+  background: rgba(15, 23, 42, 0.72);
+  color: #e2e8f0;
+  font-size: 0.84rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out);
+}
+
+.astro-btn-secondary:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.38);
+}
+
+.astro-btn-secondary.is-active {
+  background: rgba(6, 182, 212, 0.16);
+  border-color: rgba(6, 182, 212, 0.55);
+  color: #67e8f9;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Main Layout */
+.astro-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.astro-view {
+  animation: astroFadeIn 200ms var(--ease-out);
+}
+
+@keyframes astroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glass Panels & Surfaces (Glassmorphism: backdrop blur 16px, 1px light hairline, single elevation) */
+.astro-panel {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+  border-radius: 0.85rem;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .astro-panel {
+    padding: 1.5rem;
+  }
+}
+
+.astro-surface-muted {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.65rem;
+}
+
+.astro-divider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.14);
+  border: 0;
+  margin: 1rem 0;
+}
+
+/* Segmented Controls (Interactive Filters Only) */
+.astro-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: rgba(9, 15, 30, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.6rem;
+}
+
+.astro-segment-btn {
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.42rem;
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
+}
+
+.astro-segment-btn:hover {
+  color: #e2e8f0;
+}
+
+.astro-segment-btn.is-active {
+  background: rgba(6, 182, 212, 0.18);
+  color: #67e8f9;
+}
+
+/* Form Controls */
+.astro-input,
+.astro-select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(6, 11, 23, 0.9);
+  color: #f8fafc;
+  font-size: 0.9rem;
+  transition: border-color 150ms var(--ease-out);
+}
+
+.astro-input:focus,
+.astro-select:focus {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.astro-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 0.35rem;
+}
+
+/* Status Typography (Text-first, never hue-only) */
+.status-low {
+  color: #34d399;
+}
+
+.status-moderate {
+  color: #fbbf24;
+}
+
+.status-high {
+  color: #fb7185;
+}
+
+.status-box-low {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-box-moderate {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.status-box-high {
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.42);
+}
+
+/* Charts */
+.astro-chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+.astro-chart-wrap-sm {
+  position: relative;
+  width: 100%;
+  height: 240px;
+}
+
+/* Loading, Error & Toast */
+.astro-loading-panel,
+.astro-error-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.85rem;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-hairline);
+  margin-bottom: 1.25rem;
+}
+
+.astro-spinner {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 2px solid rgba(56, 189, 248, 0.25);
+  border-top-color: #38bdf8;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.astro-toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  max-width: 380px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.65rem;
+  background: rgba(11, 18, 36, 0.96);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #f1f5f9;
+  font-size: 0.85rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.astro-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(5, 9, 20, 0.75);
+}
+
+.astro-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astro-view,
+  .astro-spinner,
+  .astro-btn-primary {
+    animation: none !important;
+    transition: none !important;
+  }
+}

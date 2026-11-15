@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASTROCARE AI — Astronaut Health Intelligence &amp; Monitoring</title>
+    <meta
+      name="description"
+      content="ASTROCARE AI by Astrovibes — NASA Space Apps Challenge 2026 astronaut health monitoring, explainable risk analysis, smart alerts, and telemetry analytics."
+    />
+    <meta property="og:title" content="ASTROCARE AI — Astronaut Health Intelligence &amp; Monitoring" />
+    <meta
+      property="og:description"
+      content="Futuristic space health command center for simulated astronaut vitals, explainable AI risk analysis, and physiological analytics."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="astro-body">
+    <!-- Top Navigation Bar (3-zone contract: Brand — Nav Links — Primary CTA) -->
+    <header class="astro-header">
+      <div class="astro-header-inner">
+        <a href="#dashboard" class="astro-brand" data-nav-link="dashboard">
+          ASTROCARE AI
+        </a>
+
+        <nav class="astro-nav" aria-label="Primary navigation">
+          <button type="button" class="astro-nav-link is-active" data-view="dashboard">
+            Dashboard
+          </button>
+          <button type="button" class="astro-nav-link" data-view="monitoring">
+            Live Monitor
+          </button>
+          <button type="button" class="astro-nav-link" data-view="risk-alerts">
+            Risk &amp; Alerts
+            <span id="nav-alert-count" class="astro-nav-count hidden" aria-label="Unacknowledged alerts">0</span>
+          </button>
+          <button type="button" class="astro-nav-link" data-view="assistant">
+            AI Assistant
+          </button>
+          <button type="button" class="astro-nav-link" data-view="analytics">
+            Analytics
+          </button>
+          <button type="button" class="astro-nav-link" data-view="research">
+            NASA Sources
+          </button>
+        </nav>
+
+        <div class="astro-header-actions">
+          <button type="button" id="header-log-reading-btn" class="astro-btn-primary">
+            Log Reading
+          </button>
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            class="astro-mobile-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+          >
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav id="mobile-nav-drawer" class="astro-mobile-drawer hidden" aria-label="Mobile navigation">
+        <button type="button" class="astro-mobile-link is-active" data-view="dashboard">Mission Dashboard</button>
+        <button type="button" class="astro-mobile-link" data-view="monitoring">Live Health Monitoring</button>
+        <button type="button" class="astro-mobile-link" data-view="risk-alerts">
+          Risk Engine &amp; Alert Center
+          <span id="mobile-alert-count" class="astro-nav-count hidden">0</span>
+        </button>
+        <button type="button" class="astro-mobile-link" data-view="assistant">AI Health Assistant</button>
+        <button type="button" class="astro-mobile-link" data-view="analytics">Health Analytics</button>
+        <button type="button" class="astro-mobile-link" data-view="research">NASA Research &amp; Sources</button>
+      </nav>
+    </header>
+
+    <!-- Global Status / Feedback Banner -->
+    <div id="global-toast" class="astro-toast hidden" role="status" aria-live="polite"></div>
+
+    <!-- Main Workspace -->
+    <main class="astro-main">
+      <!-- Loading State -->
+      <div id="app-loading" class="astro-loading-panel" aria-busy="true">
+        <div class="astro-spinner" aria-hidden="true"></div>
+        <div>
+          <p class="text-sm font-semibold text-slate-100">Loading ASTROCARE AI Telemetry</p>
+          <p class="text-xs text-slate-400">Connecting to SQLite persistence and risk analysis engine...</p>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="app-error" class="astro-error-panel hidden" role="alert">
+        <div>
+          <p class="text-sm font-semibold text-rose-300">Unable to load telemetry data</p>
+          <p id="app-error-message" class="text-xs text-slate-300 mt-1">Please check backend server connection.</p>
+        </div>
+        <button type="button" id="retry-bootstrap-btn" class="astro-btn-secondary">Retry</button>
+      </div>
+
+      <!-- Views Container -->
+      <section id="view-dashboard" class="astro-view hidden" aria-label="Mission Dashboard"></section>
+      <section id="view-monitoring" class="astro-view hidden" aria-label="Live Health Monitoring"></section>
+      <section id="view-risk-alerts" class="astro-view hidden" aria-label="AI Health Risk Engine and Smart Alert Center"></section>
+      <section id="view-assistant" class="astro-view hidden" aria-label="AI Health Assistant"></section>
+      <section id="view-analytics" class="astro-view hidden" aria-label="Health Analytics"></section>
+      <section id="view-research" class="astro-view hidden" aria-label="NASA Research and Sources"></section>
+    </main>
+
+    <footer class="astro-footer">
+      <div class="astro-footer-inner">
+        <p class="text-xs text-slate-400">
+          ASTROCARE AI · Astrovibes · NASA Space Apps Challenge 2026
+        </p>
+        <p class="text-xs text-slate-500">
+          Simulated demonstration telemetry &amp; thresholds only — not medically validated flight hardware or clinical diagnosis.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
